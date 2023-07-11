@@ -1,0 +1,38 @@
+<template>
+    <lightning-card title="Search Accounts">
+      <div class="slds-m-around_medium">
+        <lightning-input label="Billing City" value={billingCity} onchange={handleCityChange} required="true">  </lightning-input>
+        <lightning-input label="Billing State" value={billingState} onchange={handleStateChange} required="true"></lightning-input>
+        <lightning-input label="Billing Country" value={billingCountry} onchange={handleCountryChange} required="true"></lightning-input>
+      </div>
+      
+      <div class="slds-clearfix">
+        <lightning-button label="Search" class="slds-float_right" onclick={handleSearch} variant="brand"></lightning-button>
+        <template if:true={isLoading}>
+          <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+        </template>
+      </div>
+    
+      <template if:true={showResults}>
+        
+        <div class="slds-m-around_medium">
+          <p>Showing {accounts.length} accounts:</p>
+          <lightning-datatable columns={columns} data={displayedAccounts} key-field="Id" sorted-direction={sortDirection}
+          onsort={doSorting} sorted-by={sortBy}
+          hide-checkbox-column="true"></lightning-datatable>
+        </div>
+        <div class="slds-m-around_medium">
+          <lightning-button-group>
+            <lightning-button label="First" onclick={handleFirst} disabled={bDisableFirst}></lightning-button>
+            <lightning-button label="Previous" onclick={handlePrevious} disabled={bDisableFirst}></lightning-button>
+            <lightning-button label="Next" onclick={handleNext} disabled={bDisableLast}></lightning-button>
+            <lightning-button label="Last" onclick={handleLast} disabled={bDisableLast}></lightning-button>
+          </lightning-button-group>
+        </div>
+        
+      </template>
+      
+      
+    </lightning-card>
+  </template>
+  

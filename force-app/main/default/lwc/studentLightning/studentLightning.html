@@ -1,0 +1,22 @@
+<template>
+    <lightning-card title="Student Detail">
+        <template if:true={student}>
+            <div class="slds-var-m-around_medium">
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-size_1-of-2">
+                        <p><b>Name:</b>{student.Name}</p>
+                            <p><b>Email: </b> {student.Email__c}</p>
+                            <p><b>Age:</b>{student.Age__c}</p>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2">
+                                <p><b>DOB:</b>{student.DOB__c}</p>
+                                <p><b>Sex:</b>{student.Sex__c}</p>
+                            </div>
+                            </div>
+                            </div>
+        </template>
+        <template if:false={student}>
+            <p > No Student data available</p>
+        </template>
+    </lightning-card>
+</template>

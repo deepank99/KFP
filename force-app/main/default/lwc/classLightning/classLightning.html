@@ -1,0 +1,18 @@
+<template>
+<lightning-card title ="Class Detail">
+      <template if:true={Class}>
+        <div class = "slds-var-m-around_medium">
+            <div class = "slds-grid slds-wrap">
+                <div class ="slds-col slds-size_1-of-2">
+                    <p><b>Name:</b>{Class.name}</p>
+                    <p><b>Board:</b>{Class.board__c}</p>
+                    <p><b>Fee:</b>{Class.fee__c}</p>    
+                </div>
+            </div>
+        </div>
+      </template>
+      <template if:false={Class}>
+        No Class Data Is available
+      </template>
+</lightning-card>    
+</template>
